@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RTS Case Study | Robert McCray</title>
+  <meta name="description" content="RTS Contract Tracking case study: high-volume workflow system with resilient sync patterns and performance tuning." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Case Study</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#innovation">Back</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#architecture">Architecture</a>
+        <a class="nav-link" href="#results">Results</a>
+        <a class="nav-link" href="#lessons">Lessons</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="overview" class="hero" style="min-height: 60vh;">
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">CASE STUDY — SYSTEMS DESIGN</div>
+      </div>
+
+      <h1 class="reveal">RTS <span class="accent">Contract Tracking</span></h1>
+      <p class="hero-sub reveal">
+        Enterprise workflow system optimized for performance, reliability, and resilient data sync under real-world constraints.
+      </p>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com">Discuss This System</a>
+        <a class="btn btn-outline" href="../index.html#innovation">Back to Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Problem</h2>
+      <p class="section-subtitle reveal" style="max-width: 900px;">
+        Teams needed reliable contract/workflow tracking at scale. The system required consistent sync behavior, fast querying,
+        and operational safety when throughput spikes.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Core Requirements</h3>
+          <ul class="modal-bullets">
+            <li>High-volume record processing</li>
+            <li>Resilient sync workflows and safe retries</li>
+            <li>Query performance for daily operations</li>
+            <li>Operational visibility + failure handling</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Constraints</h3>
+          <ul class="modal-bullets">
+            <li>Real-world data inconsistencies</li>
+            <li>Throughput spikes and partial failures</li>
+            <li>Need for consistent state + recovery paths</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Architecture</h2>
+      <p class="section-subtitle reveal">
+        A pragmatic design: stable persistence, caching where it matters, and predictable sync/retry strategies.
+      </p>
+
+      <article class="card reveal">
+        <h3>System Flow</h3>
+        <div class="mini-diagram" style="margin-top: 16px;">
+          <div class="mini-node">Clients<br><span>Ops Users</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">API<br><span>Node.js</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">Cache<br><span>Redis</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">DB<br><span>PostgreSQL</span></div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-top: 16px;">
+          Replace this placeholder with your diagram image:
+          <code>assets/images/rts-arch.png</code>
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-outline btn-sm" href="#results">Results</a>
+          <a class="btn btn-sm" href="#lessons">Lessons Learned</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="results" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Results</h2>
+      <p class="section-subtitle reveal">
+        Measurable improvements grounded in performance + operational stability.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Performance</h3>
+          <ul class="modal-bullets">
+            <li>Hot-path queries optimized with indexes & query tuning</li>
+            <li>Reduced repeated DB reads via caching strategy</li>
+            <li>Improved response consistency under load</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Reliability</h3>
+          <ul class="modal-bullets">
+            <li>Retry-safe workflows and predictable state transitions</li>
+            <li>Clear failure handling and recovery paths</li>
+            <li>Operational guardrails for throughput spikes</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Maintainability</h3>
+          <ul class="modal-bullets">
+            <li>Cleaner boundaries: API vs DB vs cache responsibilities</li>
+            <li>Containerized deploy patterns for consistency</li>
+            <li>Better observability around bottlenecks</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="lessons" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Lessons Learned</h2>
+      <p class="section-subtitle reveal">
+        How I think about building systems that survive real traffic and messy data.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Design for Recovery</h3>
+          <p>Failures happen. The system should make the “right thing” the default: retries, idempotency, and safe state transitions.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>Performance is a Feature</h3>
+          <p>Indexing, caching, and query behavior matter as much as the API endpoints — especially when teams rely on daily workflows.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>Observability Drives Trust</h3>
+          <p>Without clear signals, reliability is guesswork. Monitoring is how teams know the system is safe to depend on.</p>
+        </article>
+      </div>
+
+      <div class="footer-cta" style="margin-top: 40px;">
+        <div class="container">
+          <h2 class="reveal">Want deeper technical detail?</h2>
+          <p class="reveal">I can walk through schema choices, query tuning strategies, and the sync/retry design.</p>
+          <div class="btn-group reveal">
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
 
