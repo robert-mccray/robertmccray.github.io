@@ -44,7 +44,7 @@
       </div>
 
       <div class="nav-cta">
-        <a class="btn btn-outline btn-sm" href="assets/resume.pdf" download aria-label="Download Resume (replace file later)">
+        <a class="btn btn-outline btn-sm" href="assets/resume.pdf" download aria-label="Download Resume">
           Download Resume
         </a>
       </div>
@@ -69,8 +69,8 @@
 
       <div class="hero-chips reveal" role="list">
         <a class="chip" href="projects/mhd.html">MHD Case Study</a>
-        <a class="chip" href="#security">Security Model</a>
-        <a class="chip" href="#innovation">Architecture Work</a>
+        <a class="chip" href="artifacts/security-model.html">Security Model</a>
+        <a class="chip" href="artifacts/architecture-work.html">Architecture Work</a>
       </div>
 
       <div class="btn-group reveal">
@@ -83,9 +83,9 @@
         <div class="proof-card">
           <div class="proof-title">Proof Artifacts</div>
           <div class="proof-links">
-            <a href="projects/mhd.html#architecture" class="proof-link">Architecture Diagram</a>
-            <a href="projects/mhd.html#security" class="proof-link">Security Controls</a>
-            <a href="projects/mhd.html#roadmap" class="proof-link">Production Roadmap</a>
+            <a href="artifacts/architecture-work.html" class="proof-link">Architecture Diagram</a>
+            <a href="artifacts/security-model.html#controls" class="proof-link">Security Controls</a>
+            <a href="artifacts/production-roadmap.html" class="proof-link">Production Roadmap</a>
           </div>
         </div>
       </div>
@@ -166,6 +166,12 @@
           </div>
         </article>
       </div>
+
+      <div class="btn-group reveal" style="margin-top: 28px;">
+        <a class="btn btn-outline" href="artifacts/security-model.html">Open Security Model</a>
+        <a class="btn btn-outline" href="artifacts/security-model.html#audit">Audit Logging</a>
+        <a class="btn btn-outline" href="artifacts/security-model.html#threats">Threat Model</a>
+      </div>
     </div>
   </section>
 
@@ -194,7 +200,7 @@
 
           <div class="actions">
             <a class="btn btn-outline btn-sm" href="projects/mhd.html">Case Study</a>
-            <button class="btn btn-sm" data-modal="mhdModal">Quick Preview</button>
+            <button class="btn btn-sm" data-modal="mhdModal" type="button">Quick Preview</button>
             <a class="btn btn-outline btn-sm" href="projects/mhd.html#architecture">Architecture</a>
           </div>
         </article>
@@ -214,10 +220,16 @@
 
           <div class="actions">
             <a class="btn btn-outline btn-sm" href="projects/rts.html">Case Study</a>
-            <button class="btn btn-sm" data-modal="rtsModal">Quick Preview</button>
+            <button class="btn btn-sm" data-modal="rtsModal" type="button">Quick Preview</button>
             <a class="btn btn-outline btn-sm" href="projects/rts.html#architecture">Architecture</a>
           </div>
         </article>
+      </div>
+
+      <div class="btn-group reveal" style="margin-top: 28px;">
+        <a class="btn btn-outline" href="artifacts/architecture-work.html">Open Architecture Work</a>
+        <a class="btn btn-outline" href="artifacts/production-roadmap.html">Production Roadmap</a>
+        <a class="btn btn-outline" href="artifacts/architecture-work.html#patterns">Design Patterns</a>
       </div>
     </div>
   </section>
@@ -293,7 +305,7 @@
           <div class="project-kicker">PLATFORM ENGINEERING</div>
           <h3>MHD Health System</h3>
         </div>
-        <button class="icon-btn" data-close aria-label="Close modal">✕</button>
+        <button class="icon-btn" data-close aria-label="Close modal" type="button">✕</button>
       </div>
       <p class="modal-text">
         Secure multi-tenant platform for storing, sharing, and governing PHI/PII with audit-ready access controls and analytics-ready pipelines.
@@ -320,7 +332,7 @@
           <div class="project-kicker">SYSTEMS DESIGN</div>
           <h3>RTS Contract Tracking</h3>
         </div>
-        <button class="icon-btn" data-close aria-label="Close modal">✕</button>
+        <button class="icon-btn" data-close aria-label="Close modal" type="button">✕</button>
       </div>
       <p class="modal-text">
         High-volume workflow system optimized for reliable sync, performance, and operational safety under real constraints.
