@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robert McCray | Systems Architect</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
         <a href="#">Home</a>
-        <a href="#mindset">Mindset</a>
+        <a href="#security">Security-By-Design</a>
         <a href="#innovation">Innovation</a>
-        <a href="#stack">Skills</a>
-        <a href="https://linkedin.com/in/robert-mccray-467613195" target="_blank">Contact</a>
+        <a href="#skills">Skills</a>
+        <a href="mailto:mccrayrobert26@gmail.com">Contact</a>
     </nav>
 
     <section class="hero">
@@ -25,7 +25,7 @@
         <p>Lead Software Engineer specializing in HIPAA-compliant, multi-tenant cloud platforms and governed data ecosystems.</p>
         <div class="btn-group">
             <button onclick="window.open('https://linkedin.com/in/robert-mccray-467613195')">Start a Conversation</button>
-            <a href="https://sites.google.com/view/rmactech/architecture-brief-2025" target="_blank" style="color: white; text-decoration: none; align-self: center;">View Architecture Briefs →</a>
+            <button class="btn-outline" onclick="window.open('https://sites.google.com/view/rmactech/architecture-brief-2025')">Architecture Briefs →</button>
         </div>
     </section>
 
@@ -36,70 +36,51 @@
         <div class="metric-card"><h2>70%</h2><p>Manual Reduction</p></div>
     </section>
 
-    <section id="mindset">
-        <h2 class="section-title">Governance & Mindset</h2>
+    <div class="section-wrapper" id="security">
+        <h2 class="section-title">Security-By-Design</h2>
+        <p class="section-subtitle">Implementing Azure Well-Architected Framework principles for highly regulated environments.</p>
         <div class="grid">
-            <div class="card" style="grid-column: 1 / -1; text-align: center;">
-                <p style="font-style: italic; font-size: 1.3rem; color: var(--primary-orange);">
-                    "I design for trust boundaries, failure modes, and regulatory constraints before writing a single line of code."
-                </p>
+            <div class="card">
+                <h3 style="color: #f59e0b;">Zero-Trust Architecture</h3>
+                <p>Moving beyond perimeter security by enforcing identity-driven access controls (Entra ID), least-privilege IAM, and continuous verification for every data request.</p>
             </div>
             <div class="card">
-                <h3>Compliance Foundations</h3>
-                <p>Deep expertise in HIPAA, FHIR R4, and CMS Interoperability standards for regulated data systems.</p>
+                <h3 style="color: #f59e0b;">Blast Radius Control</h3>
+                <p>Designing isolated network boundaries through VNET encapsulation, Private Endpoints, and NSGs to ensure single-service compromise cannot expose the entire system.</p>
             </div>
             <div class="card">
-                <h3>Security Strategy</h3>
-                <p>Enforcing Zero-Trust via Entra ID (OIDC/OAuth2), Private Endpoints, and VNET isolation.</p>
+                <h3 style="color: #f59e0b;">Automated Compliance</h3>
+                <p>Utilizing Infrastructure-as-Code (Terraform) to bake security guardrails directly into the deployment pipeline, ensuring every resource is compliant from day one.</p>
             </div>
         </div>
-    </section>
 
-    <section id="innovation">
-        <h2 class="section-title">Innovation in Action</h2>
+        <h2 class="section-title" id="innovation">Innovation in Action</h2>
+        <p class="section-subtitle">Production-ready solutions for complex healthcare and enterprise data challenges.</p>
         <div class="grid">
             <div class="card">
-                <div class="badge">PLATFORM ENGINEERING</div>
+                <span style="color: #f59e0b; font-weight: 800; font-size: 0.75rem;">PLATFORM ENGINEERING</span>
                 <h3>MHD Health System</h3>
-                <p>Secure, multi-tenant health data platform using AKS microservices and Snowflake governed analytics.</p>
-                <button class="btn-outline" onclick="window.open('https://sites.google.com/view/rmactech/architecture-brief-2025')">Architecture Guide</button>
+                <p>A secure multi-tenant platform designed for PHI ownership and portability using AKS and governed analytics in Snowflake.</p>
+                <button class="btn-outline" style="color: #1e293b; border-color: #cbd5e1;" onclick="window.open('https://sites.google.com/view/rmactech/architecture-brief-2025')">Architecture Guide</button>
             </div>
             <div class="card">
-                <div class="badge">CLOUD ARCHITECTURE</div>
-                <h3>RTS System Development</h3>
-                <p>Enterprise-scale contract tracking system supporting 25+ vendors and hundreds of thousands of records.</p>
-                <button class="btn-outline">System Analysis</button>
+                <span style="color: #f59e0b; font-weight: 800; font-size: 0.75rem;">SYSTEMS DESIGN</span>
+                <h3>RTS Contract tracking</h3>
+                <p>Enterprise-scale system processing hundreds of thousands of records with real-time accuracy and resilient sync workflows.</p>
+                <button class="btn-outline" style="color: #1e293b; border-color: #cbd5e1;">Case Study</button>
             </div>
         </div>
-    </section>
-
-    <section id="stack">
-        <h2 class="section-title">Advanced Technology Stack</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Cloud Infrastructure</h3>
-                <p>Azure (AKS, Synapse, ADF), AWS (Lambda, Glue, S3), Snowflake Analytics.</p>
-            </div>
-            <div class="card">
-                <h3>Infrastructure as Code</h3>
-                <p>Terraform, Docker, Kubernetes, GitHub Actions, CI/CD Pipelines.</p>
-            </div>
-            <div class="card">
-                <h3>Security & Ops</h3>
-                <p>Entra ID, OAuth2, PagerDuty, Azure Monitor, HIPAA Compliance Governance.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <section class="footer-cta">
-        <h2>Let’s Build the Future Together</h2>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Ready to transform complex data requirements into production reality? Whether you're scaling cloud infrastructure or building secure autonomous systems, I'm here to architect solutions that drive impact.</p>
+        <h2>Let's Build the Future Together</h2>
+        <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Ready to transform complex data requirements into production reality? I am here to architect solutions that drive impact and security at scale.</p>
         <div class="btn-group">
             <button onclick="window.open('mailto:mccrayrobert26@gmail.com')">Start Conversation</button>
-            <button class="btn-outline" onclick="window.open('https://sites.google.com/view/rmactech/home')">View Projects</button>
             <button class="btn-outline" onclick="window.open('https://linkedin.com/in/robert-mccray-467613195')">Connect on LinkedIn</button>
+            <button class="btn-outline" onclick="window.open('https://sites.google.com/view/rmactech/home')">Download Resume</button>
         </div>
-        <p style="margin-top: 80px; font-size: 0.8rem; color: #64748b;">© 2026 Robert McCray Jr. Architecting the future of secure systems.</p>
+        <p style="margin-top: 100px; font-size: 0.8rem; color: #475569;">© 2026 Robert McCray Jr. | Architecting the future of secure systems.</p>
     </section>
 
 </body>
