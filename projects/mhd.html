@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MHD Case Study | Robert McCray</title>
+  <meta name="description" content="MHD Health System case study: secure multi-tenant platform for PHI/PII portability with audited sharing and governed analytics." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Case Study</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#innovation">Back</a>
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#architecture">Architecture</a>
+        <a class="nav-link" href="#security">Security</a>
+        <a class="nav-link" href="#roadmap">Roadmap</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="overview" class="hero" style="min-height: 60vh;">
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">CASE STUDY — PLATFORM ENGINEERING</div>
+      </div>
+
+      <h1 class="reveal">MHD <span class="accent">Health System</span></h1>
+      <p class="hero-sub reveal">
+        A secure multi-tenant platform built for PHI/PII ownership, controlled sharing, and analytics readiness —
+        designed with defense-in-depth and production-first patterns.
+      </p>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com">Discuss This System</a>
+        <a class="btn btn-outline" href="../index.html#security">Security Principles</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Problem</h2>
+      <p class="section-subtitle reveal" style="max-width: 900px;">
+        People lose access to medical/performance history when they change providers, teams, or systems.
+        MHD focuses on making history <b>portable</b>, <b>shareable</b>, and <b>governed</b> — without compromising privacy.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Core Requirements</h3>
+          <ul class="modal-bullets">
+            <li>Secure uploads + structured medical history</li>
+            <li>Multi-tenant access boundaries + RBAC</li>
+            <li>Time-scoped, auditable secure sharing</li>
+            <li>Async ingestion (NLP/extraction) without blocking APIs</li>
+            <li>Analytics handoff to governed warehouse access</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Constraints</h3>
+          <ul class="modal-bullets">
+            <li>PHI/PII handling expectations (audit, least privilege)</li>
+            <li>Performance under upload & extraction workloads</li>
+            <li>Clear security boundaries (identity, network, data)</li>
+            <li>Repeatable deployments + guardrails</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Architecture</h2>
+      <p class="section-subtitle reveal">
+        Cloud-native patterns: gateway enforcement, isolated services, async jobs, and governed analytics.
+      </p>
+
+      <article class="card reveal">
+        <h3>High-Level Flow</h3>
+        <div class="mini-diagram" style="margin-top: 16px;">
+          <div class="mini-node">Client<br><span>Web/Mobile</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">Edge<br><span>WAF/CDN</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">API Gateway<br><span>APIM</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">Services<br><span>FastAPI</span></div>
+          <div class="mini-arrow">→</div>
+          <div class="mini-node">Data + Files<br><span>DB/Blob</span></div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-top: 16px;">
+          Replace this placeholder with your diagram image:
+          <code>assets/images/mhd-arch.png</code>
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-outline btn-sm" href="../index.html#innovation">Back to Portfolio</a>
+          <a class="btn btn-sm" href="#security">Security Controls</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="security" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Security Controls</h2>
+      <p class="section-subtitle reveal">
+        Security is treated as part of the architecture — not a bolt-on.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Identity & Access</h3>
+          <ul class="modal-bullets">
+            <li>JWT auth, RBAC, scoped permissions</li>
+            <li>Least privilege by tenant + role</li>
+            <li>Auditable access patterns (who/what/when)</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Data Protection</h3>
+          <ul class="modal-bullets">
+            <li>Secure storage boundaries for files + metadata</li>
+            <li>Time-bound secure sharing links</li>
+            <li>Separation of operational vs analytics access</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Platform Guardrails</h3>
+          <ul class="modal-bullets">
+            <li>IaC repeatability + compliant defaults</li>
+            <li>Network segmentation + private access routes</li>
+            <li>Monitoring for abnormal access patterns</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Production Roadmap</h2>
+      <p class="section-subtitle reveal">
+        What moves this from a strong system into an enterprise-grade platform.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Reliability</h3>
+          <ul class="modal-bullets">
+            <li>Async job orchestration + retries + dead-letter queues</li>
+            <li>Health probes + autoscaling policies</li>
+            <li>Rate limiting & request shaping at gateway</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Compliance Depth</h3>
+          <ul class="modal-bullets">
+            <li>Formal audit log schema & export</li>
+            <li>Policy-as-code guardrails in CI/CD</li>
+            <li>Key management hardening + rotation</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Analytics Readiness</h3>
+          <ul class="modal-bullets">
+            <li>Curated datasets pushed to Snowflake with governance</li>
+            <li>Row-level controls & access controls by tenant</li>
+            <li>Monitoring for pipeline freshness + lineage</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="footer-cta" style="margin-top: 40px;">
+        <div class="container">
+          <h2 class="reveal">Want the full walkthrough?</h2>
+          <p class="reveal">I can walk through the threat model, tenancy strategy, and how I’d harden this for production.</p>
+          <div class="btn-group reveal">
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
 
