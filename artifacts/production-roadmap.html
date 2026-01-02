@@ -1,1 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production Roadmap | Robert McCray</title>
+  <meta name="description" content="Production roadmap: reliability hardening, compliance depth, analytics governance, and platform maturity phases." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Production Roadmap</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link" href="#phases">Phases</a>
+        <a class="nav-link" href="#checklist">Checklist</a>
+        <a class="nav-link" href="#ops">Operations</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-outline btn-sm" href="../assets/resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="phases" style="min-height: 58vh;">
+    <div class="cloud-layer" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">PRODUCTION ROADMAP — PLATFORM MATURITY</div>
+      </div>
+
+      <h1 class="reveal">Production <span class="accent">Roadmap</span></h1>
+      <p class="hero-sub reveal" style="max-width: 980px;">
+        A realistic hardening plan that upgrades an MVP into an enterprise-grade platform:
+        reliability, security depth, compliance trails, and operational excellence.
+      </p>
+
+      <div class="hero-chips reveal">
+        <a class="chip" href="../projects/mhd.html#roadmap">MHD Roadmap</a>
+        <a class="chip" href="security-model.html">Security Model</a>
+        <a class="chip" href="architecture-work.html">Architecture Work</a>
+      </div>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="../projects/mhd.html">Open MHD Case Study</a>
+        <a class="btn btn-outline" href="../index.html#innovation">Back to Portfolio</a>
+        <a class="btn btn-outline" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Phased Maturity Plan</h2>
+      <p class="section-subtitle reveal">
+        Each phase adds specific production capabilities with measurable outcomes.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Phase 1 — Stabilize (Baseline Production)</h3>
+          <ul class="modal-bullets">
+            <li>Health checks + readiness/liveness probes</li>
+            <li>Gateway rate limiting + request validation</li>
+            <li>Centralized logging with request IDs</li>
+            <li>Secure secrets management (Vault/Key Vault)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Availability</span>
+            <span class="pill">Visibility</span>
+            <span class="pill">Security basics</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Phase 2 — Scale (Resilience + Throughput)</h3>
+          <ul class="modal-bullets">
+            <li>Async job queues for heavy processing</li>
+            <li>Retry strategy + dead-letter queue</li>
+            <li>Autoscaling policies (HPA/KEDA)</li>
+            <li>Backpressure and upload safeguards</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Queues</span>
+            <span class="pill">Autoscaling</span>
+            <span class="pill">Resilience</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Phase 3 — Govern (Compliance + Audit Depth)</h3>
+          <ul class="modal-bullets">
+            <li>Formal audit logs (schema + exports)</li>
+            <li>Policy-as-code guardrails in CI/CD</li>
+            <li>Key rotation + access reviews</li>
+            <li>Security event detection signals</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Audit</span>
+            <span class="pill">Policy checks</span>
+            <span class="pill">Governance</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Phase 4 — Enterprise (Reliability + Ops Excellence)</h3>
+          <ul class="modal-bullets">
+            <li>Incident runbooks + SLOs</li>
+            <li>Chaos testing / failure drills</li>
+            <li>Multi-region strategy (where applicable)</li>
+            <li>Automated compliance reporting workflows</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">SLOs</span>
+            <span class="pill">Runbooks</span>
+            <span class="pill">DR strategy</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklist" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Hardening Checklist</h2>
+      <p class="section-subtitle reveal">
+        A reviewer-friendly checklist that maps directly to “production readiness.”
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Reliability</h3>
+          <ul class="modal-bullets">
+            <li>Retries + idempotency on job handlers</li>
+            <li>Dead-letter queues and replay tooling</li>
+            <li>Timeouts + circuit breakers on external calls</li>
+            <li>Graceful degradation for dependent services</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Security</h3>
+          <ul class="modal-bullets">
+            <li>Tenant isolation enforced server-side</li>
+            <li>Least-privilege roles for services</li>
+            <li>Secrets stored in Vault/Key Vault</li>
+            <li>Share links: expire + revoke + audit</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Observability</h3>
+          <ul class="modal-bullets">
+            <li>Structured logs with request IDs</li>
+            <li>Metrics for latency, errors, saturation</li>
+            <li>Traces for end-to-end workflows</li>
+            <li>Alerts tied to user impact</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Data Governance</h3>
+          <ul class="modal-bullets">
+            <li>Curated datasets for analytics (not raw PHI)</li>
+            <li>Row/tenant-level access in warehouse</li>
+            <li>Data lineage + freshness monitoring</li>
+            <li>Export-ready audit trails</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ops" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Operations & Incident Readiness</h2>
+      <p class="section-subtitle reveal">
+        Production isn’t just “it runs.” It’s “we can recover quickly.”
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>SLOs that matter</h3>
+          <ul class="modal-bullets">
+            <li>API availability and latency</li>
+            <li>Upload success rates</li>
+            <li>Job processing time (p95)</li>
+            <li>Data pipeline freshness</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Runbooks</h3>
+          <ul class="modal-bullets">
+            <li>Queue backlog runaway</li>
+            <li>Spike in 401/403 failures</li>
+            <li>Storage errors on upload</li>
+            <li>Database saturation / slow queries</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Failure drills</h3>
+          <ul class="modal-bullets">
+            <li>Kill a pod/service and confirm recovery</li>
+            <li>Simulate a bad deploy and rollback</li>
+            <li>Throttle a dependency and watch behavior</li>
+            <li>Test “replay from DLQ” safely</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="footer-cta" style="margin-top: 46px;">
+        <div class="container">
+          <h2 class="reveal">Want this packaged as a PDF brief?</h2>
+          <p class="reveal">I can combine roadmap + controls + architecture into a single hiring-manager-ready artifact.</p>
+          <div class="btn-group reveal">
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="architecture-work.html">Architecture Work</a>
+            <a class="btn btn-outline" href="security-model.html">Security Model</a>
+          </div>
+          <p class="footer-mini reveal">© 2026 Robert McCray Jr. | Production Roadmap</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
