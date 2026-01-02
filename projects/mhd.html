@@ -10,9 +10,14 @@
 </head>
 <body>
 
+  <!-- Progress bar (matches your main.js progress feature) -->
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
   <nav class="nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Case Study</span></a>
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">MHD Case Study</span></a>
       <div class="nav-links">
         <a class="nav-link" href="../index.html#innovation">Back</a>
         <a class="nav-link" href="#overview">Overview</a>
@@ -20,28 +25,55 @@
         <a class="nav-link" href="#security">Security</a>
         <a class="nav-link" href="#roadmap">Roadmap</a>
       </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-outline btn-sm" href="../assets/resume.pdf" download>Download Resume</a>
+      </div>
     </div>
   </nav>
 
-  <header id="overview" class="hero" style="min-height: 60vh;">
+  <header id="overview" class="hero" style="min-height: 62vh;">
+    <div class="cloud-layer" aria-hidden="true"></div>
+
     <div class="container hero-inner">
       <div class="badge-container reveal">
         <div class="badge">CASE STUDY — PLATFORM ENGINEERING</div>
       </div>
 
       <h1 class="reveal">MHD <span class="accent">Health System</span></h1>
-      <p class="hero-sub reveal">
-        A secure multi-tenant platform built for PHI/PII ownership, controlled sharing, and analytics readiness —
-        designed with defense-in-depth and production-first patterns.
+
+      <p class="hero-sub reveal" style="max-width: 980px;">
+        A security-by-design platform for PHI/PII ownership, controlled sharing, and analytics readiness —
+        built with multi-tenant boundaries, audit-friendly access patterns, and production-first architecture.
       </p>
 
-      <div class="btn-group reveal">
-        <a class="btn" href="mailto:mccrayrobert26@gmail.com">Discuss This System</a>
-        <a class="btn btn-outline" href="../index.html#security">Security Principles</a>
+      <div class="hero-chips reveal">
+        <a class="chip" href="#architecture">Architecture</a>
+        <a class="chip" href="#security">Security Controls</a>
+        <a class="chip" href="#roadmap">Production Roadmap</a>
       </div>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com?subject=MHD%20Case%20Study%20Walkthrough">Discuss This System</a>
+        <a class="btn btn-outline" href="../artifacts/security-model.html">Security Model</a>
+        <a class="btn btn-outline" href="../artifacts/architecture-work.html">Architecture Work</a>
+      </div>
+
+      <div class="hero-proof reveal" style="margin-top: 28px;">
+        <div class="proof-card">
+          <div class="proof-title">Proof Artifacts</div>
+          <div class="proof-links">
+            <a href="../artifacts/architecture-work.html" class="proof-link">Architecture Diagram</a>
+            <a href="../artifacts/security-model.html#controls" class="proof-link">Security Controls</a>
+            <a href="../artifacts/production-roadmap.html" class="proof-link">Production Roadmap</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </header>
 
+  <!-- PROBLEM -->
   <section class="section">
     <div class="container">
       <h2 class="section-title reveal">Problem</h2>
@@ -60,6 +92,11 @@
             <li>Async ingestion (NLP/extraction) without blocking APIs</li>
             <li>Analytics handoff to governed warehouse access</li>
           </ul>
+          <div class="card-footer">
+            <span class="pill">PHI/PII</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Audit</span>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -70,11 +107,75 @@
             <li>Clear security boundaries (identity, network, data)</li>
             <li>Repeatable deployments + guardrails</li>
           </ul>
+          <div class="card-footer">
+            <span class="pill">Latency</span>
+            <span class="pill">Isolation</span>
+            <span class="pill">Repeatability</span>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- WHAT I BUILT (Retention section) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">What I Built</h2>
+      <p class="section-subtitle reveal" style="max-width: 920px;">
+        This system was built to prove end-to-end platform thinking: secure ingestion, tenant boundaries, controlled sharing,
+        and a clear path to production hardening.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Secure Upload + Structured History</h3>
+          <p>
+            Users can upload medical records and track injury history/forms in a structured way.
+            Upload flows are designed for PHI safety, with metadata capture and clear ownership boundaries.
+          </p>
+          <div class="card-footer">
+            <span class="pill">Uploads</span>
+            <span class="pill">Metadata</span>
+            <span class="pill">Ownership</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Controlled Sharing (Audit-Friendly)</h3>
+          <p>
+            Sharing is treated as a governed workflow: time-scoped access, least-privilege permissions,
+            and visibility into who accessed what (audit posture).
+          </p>
+          <div class="card-footer">
+            <span class="pill">Expiry</span>
+            <span class="pill">Scoped Access</span>
+            <span class="pill">Audit</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Async Processing Path</h3>
+          <p>
+            Heavy tasks (extraction/NLP) are designed to move out of the request path so the API stays responsive.
+            This is the pattern that scales cleanly into queues + workers in production.
+          </p>
+          <div class="card-footer">
+            <span class="pill">Jobs/Queues</span>
+            <span class="pill">Non-blocking</span>
+            <span class="pill">Scalable</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="btn-group reveal" style="margin-top: 26px;">
+        <a class="btn btn-outline" href="#architecture">View Architecture</a>
+        <a class="btn btn-outline" href="#security">View Security</a>
+        <a class="btn btn-outline" href="#roadmap">View Roadmap</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
   <section id="architecture" class="section">
     <div class="container">
       <h2 class="section-title reveal">Architecture</h2>
@@ -84,6 +185,7 @@
 
       <article class="card reveal">
         <h3>High-Level Flow</h3>
+
         <div class="mini-diagram" style="margin-top: 16px;">
           <div class="mini-node">Client<br><span>Web/Mobile</span></div>
           <div class="mini-arrow">→</div>
@@ -96,19 +198,31 @@
           <div class="mini-node">Data + Files<br><span>DB/Blob</span></div>
         </div>
 
-        <p style="color: var(--text-muted); margin-top: 16px;">
-          Replace this placeholder with your diagram image:
-          <code>assets/images/mhd-arch.png</code>
+        <!-- REAL DIAGRAM -->
+        <div style="margin-top: 18px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+          <img
+            src="../assets/images/Architecture%20png.jpg"
+            alt="MHD Architecture Diagram"
+            style="width: 100%; display: block;"
+            loading="lazy"
+          />
+        </div>
+
+        <p class="modal-text" style="margin-top: 14px;">
+          The key architecture decision: keep the API responsive by pushing heavy work (file processing/extraction)
+          into async workflows, while enforcing tenant + security boundaries at the gateway and service layer.
         </p>
 
         <div class="actions">
           <a class="btn btn-outline btn-sm" href="../index.html#innovation">Back to Portfolio</a>
+          <a class="btn btn-outline btn-sm" href="../artifacts/architecture-work.html">Architecture Work</a>
           <a class="btn btn-sm" href="#security">Security Controls</a>
         </div>
       </article>
     </div>
   </section>
 
+  <!-- SECURITY -->
   <section id="security" class="section">
     <div class="container">
       <h2 class="section-title reveal">Security Controls</h2>
@@ -124,6 +238,11 @@
             <li>Least privilege by tenant + role</li>
             <li>Auditable access patterns (who/what/when)</li>
           </ul>
+          <div class="card-footer">
+            <span class="pill">JWT</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Tenant Scope</span>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -133,6 +252,11 @@
             <li>Time-bound secure sharing links</li>
             <li>Separation of operational vs analytics access</li>
           </ul>
+          <div class="card-footer">
+            <span class="pill">Encryption</span>
+            <span class="pill">Sharing</span>
+            <span class="pill">Governance</span>
+          </div>
         </article>
 
         <article class="card reveal">
@@ -142,11 +266,23 @@
             <li>Network segmentation + private access routes</li>
             <li>Monitoring for abnormal access patterns</li>
           </ul>
+          <div class="card-footer">
+            <span class="pill">Terraform</span>
+            <span class="pill">Segmentation</span>
+            <span class="pill">Monitoring</span>
+          </div>
         </article>
+      </div>
+
+      <div class="btn-group reveal" style="margin-top: 26px;">
+        <a class="btn btn-outline" href="../artifacts/security-model.html#threats">Threat Model</a>
+        <a class="btn btn-outline" href="../artifacts/security-model.html#controls">Full Controls</a>
+        <a class="btn btn-outline" href="../artifacts/security-model.html#audit">Audit Logging</a>
       </div>
     </div>
   </section>
 
+  <!-- ROADMAP -->
   <section id="roadmap" class="section">
     <div class="container">
       <h2 class="section-title reveal">Production Roadmap</h2>
@@ -183,14 +319,21 @@
         </article>
       </div>
 
+      <div class="btn-group reveal" style="margin-top: 26px;">
+        <a class="btn" href="../artifacts/production-roadmap.html">Open Full Roadmap</a>
+        <a class="btn btn-outline" href="../artifacts/architecture-work.html">Architecture Work</a>
+        <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+      </div>
+
       <div class="footer-cta" style="margin-top: 40px;">
         <div class="container">
           <h2 class="reveal">Want the full walkthrough?</h2>
           <p class="reveal">I can walk through the threat model, tenancy strategy, and how I’d harden this for production.</p>
           <div class="btn-group reveal">
-            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com?subject=MHD%20Walkthrough">Email Me</a>
             <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
           </div>
+          <p class="footer-mini reveal">© 2026 Robert McCray Jr. | MHD Case Study</p>
         </div>
       </div>
     </div>
@@ -199,4 +342,3 @@
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
-
