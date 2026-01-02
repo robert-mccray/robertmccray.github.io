@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture Work | Robert McCray</title>
+  <meta name="description" content="Architecture work: diagrams, design decisions, patterns, and proof artifacts for secure cloud-native data systems." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <div class="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html#home">RM <span class="nav-brand-sub">Architecture Work</span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#home">Home</a>
+        <a class="nav-link" href="#artifacts">Artifacts</a>
+        <a class="nav-link" href="#patterns">Patterns</a>
+        <a class="nav-link" href="#decisions">Decisions</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-outline btn-sm" href="../assets/resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="artifacts" style="min-height: 58vh;">
+    <div class="cloud-layer" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="badge-container reveal">
+        <div class="badge">PROOF ARTIFACTS — ARCHITECTURE</div>
+      </div>
+
+      <h1 class="reveal">Architecture <span class="accent">Work</span></h1>
+      <p class="hero-sub reveal" style="max-width: 980px;">
+        The goal isn’t “pretty diagrams.” It’s production-minded thinking:
+        boundaries, failure modes, security controls, and an upgrade path from MVP → enterprise-grade.
+      </p>
+
+      <div class="hero-chips reveal">
+        <a class="chip" href="../projects/mhd.html#architecture">MHD Architecture</a>
+        <a class="chip" href="../projects/rts.html#architecture">RTS Architecture</a>
+        <a class="chip" href="security-model.html">Security Model</a>
+      </div>
+
+      <div class="btn-group reveal">
+        <a class="btn" href="../projects/mhd.html">Open MHD Case Study</a>
+        <a class="btn btn-outline" href="production-roadmap.html">Production Roadmap</a>
+        <a class="btn btn-outline" href="../index.html#innovation">Back to Innovation</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Architecture Artifacts</h2>
+      <p class="section-subtitle reveal">
+        Downloadable and reviewable artifacts that show how the system is designed.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>MHD Diagram (Placeholder)</h3>
+          <p class="modal-text">
+            Replace this with your final exported diagram image and/or PDF.
+          </p>
+          <ul class="modal-bullets">
+            <li>Identity-first access (Entra ID/JWT)</li>
+            <li>Gateway enforcement (WAF/APIM)</li>
+            <li>Services isolated behind private networking</li>
+            <li>Operational store + file store + governed analytics</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-outline btn-sm" href="../projects/mhd.html#architecture">View in Case Study</a>
+            <a class="btn btn-sm" href="../assets/images/Architecture%20png.jpg" target="_blank" rel="noopener">Open Image</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Security Controls Artifact</h3>
+          <p class="modal-text">
+            A controls checklist mapped to platform layers (identity, network, app, data, audit).
+          </p>
+          <ul class="modal-bullets">
+            <li>RBAC + tenant scoping</li>
+            <li>Private endpoints + segmentation</li>
+            <li>Secure share links: scoped + time-bound</li>
+            <li>Audit logging schema + detection signals</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-sm" href="security-model.html#controls">Open Controls</a>
+            <a class="btn btn-outline btn-sm" href="security-model.html#audit">Audit Logging</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Production Readiness Artifact</h3>
+          <p class="modal-text">
+            A roadmap that turns strong architecture into enterprise-grade operations.
+          </p>
+          <ul class="modal-bullets">
+            <li>Async processing + retries + DLQ</li>
+            <li>Autoscaling + health checks + rate limits</li>
+            <li>Monitoring + alerting + incident runbooks</li>
+            <li>Policy-as-code guardrails in CI/CD</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-sm" href="production-roadmap.html">Open Roadmap</a>
+            <a class="btn btn-outline btn-sm" href="production-roadmap.html#checklist">Hardening Checklist</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="patterns" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Design Patterns I Use</h2>
+      <p class="section-subtitle reveal">
+        Patterns that show up repeatedly in reliable secure systems.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Gateway as Policy Enforcement</h3>
+          <p>Put rate limits, auth enforcement, request validation, and routing in a single consistent entry layer.</p>
+          <div class="card-footer">
+            <span class="pill">APIM/Gateway</span>
+            <span class="pill">WAF</span>
+            <span class="pill">Rate limiting</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Async by Default for Heavy Work</h3>
+          <p>Uploads, extraction, and NLP go through job/queue patterns so APIs stay responsive.</p>
+          <div class="card-footer">
+            <span class="pill">Queues</span>
+            <span class="pill">Jobs</span>
+            <span class="pill">Retries</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Governed Analytics Boundary</h3>
+          <p>Operational systems are not analytics systems. Curate datasets and restrict access through governance.</p>
+          <div class="card-footer">
+            <span class="pill">Snowflake</span>
+            <span class="pill">RBAC</span>
+            <span class="pill">Curated datasets</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Tenant Isolation as a First-Class Concern</h3>
+          <p>Tenant scope is enforced in auth + queries + storage paths. No cross-tenant reads, ever.</p>
+          <div class="card-footer">
+            <span class="pill">Tenant scope</span>
+            <span class="pill">Row filters</span>
+            <span class="pill">Audit</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="decisions" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Key Decisions & Tradeoffs</h2>
+      <p class="section-subtitle reveal">
+        These are the decisions that demonstrate judgment.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Why time-bound share links?</h3>
+          <p>Sharing is a major risk surface. Time + scope limits reduce blast radius and make access reviewable.</p>
+          <div class="card-footer">
+            <span class="pill">Scoped access</span>
+            <span class="pill">Expiry</span>
+            <span class="pill">Revocation</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Why separate operational vs analytics?</h3>
+          <p>Analytics needs broader access. Operational services must stay minimal, fast, and locked down.</p>
+          <div class="card-footer">
+            <span class="pill">Security boundary</span>
+            <span class="pill">Performance</span>
+            <span class="pill">Governance</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Why IaC guardrails?</h3>
+          <p>Humans drift. IaC and policy checks keep environments consistent and compliant.</p>
+          <div class="card-footer">
+            <span class="pill">Terraform</span>
+            <span class="pill">Policy-as-code</span>
+            <span class="pill">Repeatability</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="footer-cta" style="margin-top: 46px;">
+        <div class="container">
+          <h2 class="reveal">Want a reviewer-friendly architecture packet?</h2>
+          <p class="reveal">I can bundle the diagram, security controls, and roadmap into a single architecture brief.</p>
+          <div class="btn-group reveal">
+            <a class="btn" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="../projects/mhd.html">MHD Case Study</a>
+            <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+          </div>
+          <p class="footer-mini reveal">© 2026 Robert McCray Jr. | Architecture Work</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
