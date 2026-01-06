@@ -94,6 +94,37 @@
           </div>
         </article>
 
+
+        <article class="card reveal">
+          <h3>RTS Architecture Diagram</h3>
+
+          <p class="modal-text">
+            High-volume operational contract tracking: fast API reads, cache for hot paths, and PostgreSQL as the source of truth.
+          </p>
+
+          <!-- Embedded diagram -->
+          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+            <img
+              src="../assets/images/rts-architecture.jpg"
+              alt="RTS Architecture Diagram"
+              style="width: 100%; height: auto; display: block;"
+              loading="lazy"
+            />
+          </div>
+
+          <ul class="modal-bullets" style="margin-top: 14px;">
+            <li>API layer (Node.js) handles idempotent requests + safe retries</li>
+            <li>Redis for hot reads + throughput buffering</li>
+            <li>PostgreSQL remains the source of truth for contract state</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn btn-outline btn-sm" href="../projects/rts.html#architecture">View in Case Study</a>
+            <a class="btn btn-sm" href="../assets/images/rts-architecture.jpg" target="_blank" rel="noopener">Open Full Image</a>
+          </div>
+        </article>
+        
+
         <article class="card reveal">
           <h3>Security Controls Artifact</h3>
           <p class="modal-text">
