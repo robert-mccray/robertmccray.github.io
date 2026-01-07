@@ -68,24 +68,13 @@
           <h3>MHD Architecture Diagram</h3>
 
           <p class="modal-text">
-            High-level system boundary: identity-first access, gateway enforcement, isolated services, and a governed analytics edge.
+            Serverless workflow architecture: ingestion → durable processing → normalized storage → reporting-ready outputs.
           </p>
 
-          <!-- Embedded diagram -->
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img
-              src="../assets/images/mhd-architecture.jpg"
-              alt="MHD Architecture Diagram"
-              style="width: 100%; height: auto; display: block;"
-              loading="lazy"
-            />
-          </div>
-
           <ul class="modal-bullets" style="margin-top: 14px;">
-            <li>Identity-first access (Entra ID / JWT)</li>
-            <li>Gateway enforcement (WAF / APIM)</li>
-            <li>Services isolated behind private networking</li>
-            <li>Operational store + file store + governed analytics boundary</li>
+            <li>Durable ingest + validation for messy source data</li>
+            <li>Async processing with retries + safe state transitions</li>
+            <li>Operational DB as source of truth + archive storage for long-term retention</li>
           </ul>
 
           <div class="actions">
