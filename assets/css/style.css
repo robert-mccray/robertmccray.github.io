@@ -594,3 +594,6 @@ button.btn { font-family: inherit; }
   .nav-link { font-size: 0.85rem; }
   .modal-card { margin-top: 86px; }
 }
+
+/* EMERGENCY: show content even if JS fails */
+.reveal { opacity: 1 !important; transform: none !important; }
