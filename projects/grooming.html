@@ -24,8 +24,9 @@
         <a class="nav-link" href="#overview">Overview</a>
         <a class="nav-link" href="#architecture">Architecture</a>
         <a class="nav-link" href="#data">Data</a>
-        <a class="nav-link" href="#evidence">Evidence</a>
         <a class="nav-link" href="#results">Results</a>
+        <a class="nav-link" href="#evidence">Evidence</a>
+        <a class="nav-link" href="#monitoring">Monitoring</a>
       </div>
       <div class="nav-cta">
         <a class="btn btn-outline btn-sm" href="../assets/resume.pdf" download>Download Resume</a>
@@ -45,14 +46,14 @@
       <h1 class="reveal">Living Care <span class="accent">Grooming Platform</span></h1>
 
       <p class="hero-sub reveal" style="max-width: 980px;">
-        A role-based booking + approval workflow system for grooming services in living care facilities — designed with audit logging,
-        data governance, and analytics readiness from day one.
+        A role-based booking + approval workflow system for grooming services in living care facilities — designed with audit logging, data governance, and analytics readiness from day one.
       </p>
 
       <div class="hero-chips reveal">
         <a class="chip" href="#architecture">Architecture</a>
         <a class="chip" href="#data">Data & ETL</a>
-        <a class="chip" href="#evidence">Evidence Pack</a>
+        <a class="chip" href="#evidence">Proof (Screenshots)</a>
+        <a class="chip" href="#monitoring">Monitoring</a>
         <a class="chip" href="#results">Results</a>
       </div>
 
@@ -65,10 +66,10 @@
         <div class="proof-card">
           <div class="proof-title">Proof Pillars</div>
           <div class="proof-links">
-            <span class="proof-link">Governed Analytics (Bronze/Silver/Gold)</span>
-            <span class="proof-link">ADF Pipelines + Migration Metrics</span>
-            <span class="proof-link">SQL Views (Silver + Gold)</span>
-            <span class="proof-link">Power BI Ops + Data Quality</span>
+            <span class="proof-link">Data Governance + Secure Sharing</span>
+            <span class="proof-link">ADF Pipelines + Data Migration</span>
+            <span class="proof-link">Azure SQL DBA + BI Reporting</span>
+            <span class="proof-link">Monitoring + Observability</span>
           </div>
         </div>
       </div>
@@ -80,8 +81,7 @@
     <div class="container">
       <h2 class="section-title reveal">Problem</h2>
       <p class="section-subtitle reveal" style="max-width: 900px;">
-        Grooming services inside living care facilities often run on informal scheduling, manual tracking, and inconsistent documentation —
-        leading to missed appointments, limited operational visibility, and weak audit trails for exceptions and overrides.
+        Grooming services inside living care facilities often run on informal scheduling, manual tracking, and inconsistent documentation — leading to missed appointments, limited operational visibility, and weak audit trails for exceptions and overrides.
       </p>
 
       <div class="grid">
@@ -124,16 +124,14 @@
     <div class="container">
       <h2 class="section-title reveal">What I Built</h2>
       <p class="section-subtitle reveal" style="max-width: 920px;">
-        This project was intentionally designed to demonstrate end-to-end Azure data platform capability:
-        operational workflows (OLTP), data governance, ETL pipelines, and BI visibility — with cost-aware architecture.
+        This project was intentionally designed to demonstrate end-to-end Azure data platform capability: operational workflows (OLTP), data governance, ETL pipelines, and BI visibility — with cost-aware architecture.
       </p>
 
       <div class="grid">
         <article class="card reveal">
           <h3>Approval-Based Booking Workflow</h3>
           <p>
-            Booking is treated as a governed workflow: vendors request slots, facilities approve/deny,
-            and staff can override with reason codes. State changes are captured for auditability.
+            Booking is treated as a governed workflow: vendors request slots, facilities approve/deny, and staff can override with reason codes. All state changes are captured for auditability.
           </p>
           <div class="card-footer">
             <span class="pill">Workflow</span>
@@ -143,10 +141,9 @@
         </article>
 
         <article class="card reveal">
-          <h3>Governance + Secure Sharing</h3>
+          <h3>Data Governance + Secure Sharing</h3>
           <p>
-            Identity-first access (Entra roles), least-privilege service access (managed identity),
-            and audit events as first-class records. Reporting access is governed through dataset permissions.
+            Identity-first access (Entra roles), least-privilege service access (managed identity), and audit events as first-class records. Reporting access is governed through dataset permissions.
           </p>
           <div class="card-footer">
             <span class="pill">Entra ID</span>
@@ -158,8 +155,7 @@
         <article class="card reveal">
           <h3>Lakehouse-Lite Analytics</h3>
           <p>
-            Operational + audit data exported through ADF into ADLS using Bronze/Silver/Gold layers.
-            Silver enforces data contracts; Gold publishes star-schema datasets for BI consumption.
+            Operational and audit data are exported through ADF into an ADLS bronze/silver/gold pattern (parquet + partitioning), queried via serverless SQL views, and visualized in Power BI dashboards.
           </p>
           <div class="card-footer">
             <span class="pill">ADF</span>
@@ -172,7 +168,7 @@
       <div class="btn-group reveal" style="margin-top: 26px;">
         <a class="btn btn-outline" href="#architecture">View Architecture</a>
         <a class="btn btn-outline" href="#data">View Data & ETL</a>
-        <a class="btn btn-outline" href="#evidence">View Evidence Pack</a>
+        <a class="btn btn-outline" href="#evidence">View Proof</a>
       </div>
     </div>
   </section>
@@ -202,19 +198,18 @@
 
         <div style="margin-top: 18px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); padding: 16px;">
           <p class="modal-text" style="margin: 0;">
-            <b>Core services:</b> Azure SQL (OLTP + audit), Data Factory (pipelines), ADLS Gen2 (Bronze/Silver/Gold),
-            serverless SQL views (Silver + Gold), Power BI dashboards, Azure Monitor / Log Analytics for observability.
+            <b>Core services:</b> Azure Container Apps (API/worker), Azure SQL (OLTP + audit), Data Factory (pipelines), ADLS Gen2 (bronze/silver/gold), Serverless SQL views, Power BI (dashboards), Azure Monitor (Log Analytics + App Insights).
           </p>
         </div>
 
         <p class="modal-text" style="margin-top: 14px;">
-          Key architecture decision: deliver enterprise-grade governance and analytics readiness with serverless / scale-to-zero patterns,
-          avoiding always-on warehouses during early validation.
+          Key decision: demonstrate enterprise governance and analytics readiness using serverless + scale-to-zero patterns (avoid always-on warehouses during early validation).
         </p>
 
         <div class="actions">
           <a class="btn btn-outline btn-sm" href="#data">Data & ETL</a>
-          <a class="btn btn-sm" href="#evidence">Evidence Pack</a>
+          <a class="btn btn-outline btn-sm" href="#monitoring">Monitoring</a>
+          <a class="btn btn-sm" href="#results">Results</a>
         </div>
       </article>
     </div>
@@ -233,7 +228,7 @@
           <h3>Operational Model (Azure SQL)</h3>
           <ul class="modal-bullets">
             <li>Facilities, Residents, Vendors, Services</li>
-            <li>Appointments with explicit statuses</li>
+            <li>Appointments with explicit statuses (requested/approved/denied/completed/cancelled)</li>
             <li>Approval events (who/when/why) + override reasons</li>
             <li>Append-only audit events (critical action trail)</li>
           </ul>
@@ -249,7 +244,7 @@
           <ul class="modal-bullets">
             <li>Ingest roster exports (CSV/Excel) with schema mapping rules</li>
             <li>Validation checks (required fields, referential consistency)</li>
-            <li>Reconciliation counts by facility/date + reject capture</li>
+            <li>Dedupe logic and reconciliation counts by facility/date</li>
           </ul>
           <div class="card-footer">
             <span class="pill">ADF</span>
@@ -261,159 +256,31 @@
         <article class="card reveal">
           <h3>Bronze / Silver / Gold (Lakehouse-Lite)</h3>
           <ul class="modal-bullets">
-            <li><b>Bronze:</b> raw, immutable exports for lineage + replay</li>
-            <li><b>Silver:</b> cleaned, conformed, contract-enforced datasets</li>
-            <li><b>Gold:</b> star schema facts/dims optimized for BI</li>
+            <li><b>Bronze:</b> raw, immutable exports for replay/forensics</li>
+            <li><b>Silver:</b> cleaned + conformed views (data contracts)</li>
+            <li><b>Gold:</b> star schema facts/dims for BI performance</li>
           </ul>
           <div class="card-footer">
+            <span class="pill">Lineage</span>
             <span class="pill">Contracts</span>
-            <span class="pill">Parquet</span>
             <span class="pill">Star Schema</span>
           </div>
         </article>
       </div>
 
       <article class="card reveal" style="margin-top: 18px;">
-        <h3>Data Quality Contracts (Silver)</h3>
+        <h3>Governance & Secure Sharing</h3>
         <ul class="modal-bullets">
-          <li>Reject reason codes normalized (UPPER)</li>
-          <li>Facility code required (defaults to UNKNOWN when missing)</li>
-          <li>Typed timestamps for consistent time-series reporting</li>
+          <li>Entra app roles: facility_admin, staff, vendor, viewer</li>
+          <li>Least-privilege service access for data movement and queries</li>
+          <li>Clear separation of OLTP vs analytics access</li>
+          <li>Power BI workspace + dataset permissions for controlled reporting</li>
         </ul>
-        <p class="modal-text" style="margin-top: 10px;">
-          <b>Talking point:</b> “Rejects are first-class entities, not discarded errors.”
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- EVIDENCE PACK -->
-  <section id="evidence" class="section">
-    <div class="container">
-      <h2 class="section-title reveal">Evidence Pack</h2>
-      <p class="section-subtitle reveal" style="max-width: 920px;">
-        Reviewer-friendly proof that this wasn’t “just a dashboard.” These artifacts show governed layering, intentional contracts,
-        and operational visibility across pipelines, storage, SQL, and BI.
-      </p>
-
-      <div class="grid">
-        <article class="card reveal">
-          <h3>ADF Pipelines (Bronze)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adf_bronze_pipeline.png" alt="ADF Bronze pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Exports OLTP + audit entities to Bronze for lineage/replay.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>ADF Pipelines (Silver)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adf_silver_pipeline.png" alt="ADF Silver pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Cleans + normalizes data; enforces business contracts.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>ADF Pipelines (Gold)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adf_gold_pipeline.png" alt="ADF Gold pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Curates star-schema datasets for BI consumption.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>ADLS Containers (Layering)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adls_containers.png" alt="ADLS containers showing bronze, silver, gold, landing, rejects" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Clear separation of raw vs curated datasets.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Silver Outputs (Cleaned)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adls_silver_contents.png" alt="ADLS Silver contents" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Contract-enforced datasets ready for reuse.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Gold Outputs (Star Schema)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/adls_gold_contents.png" alt="ADLS Gold contents" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Dim/fact tables and quality facts for BI.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>SQL Views (Silver + Gold)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/sql_views_list.png" alt="SQL output listing silver and gold views" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Shows intentional layering at the DB level (governance signal).
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Silver Rejects Contract (Snippet)</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/silver_rejects_view.png" alt="Silver rejects view snippet showing UPPER normalization and facility code contract" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Rejects are enforced with contracts (UPPER + required facility_code).
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Power BI — Ops</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/powerbi_ops.png" alt="Power BI Ops dashboard" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Volume, vendor load, avg duration, cancel rate.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Power BI — Data Quality</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/powerbi_data_quality.png" alt="Power BI Data Quality dashboard" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Rows read vs rejected, reject rate, top reasons over time.
-          </p>
-        </article>
-
-        <article class="card reveal">
-          <h3>Azure Governance Signals</h3>
-          <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
-            <img src="../assets/images/grooming/azure_rg_tags.png" alt="Azure Resource Group resources and tags" style="width: 100%; height: auto; display: block;" loading="lazy" />
-          </div>
-          <p class="modal-text" style="margin-top: 12px;">
-            Resource grouping + tags reflect consulting-style governance hygiene.
-          </p>
-        </article>
-      </div>
-
-      <article class="card reveal" style="margin-top: 18px;">
-        <h3>Observability (KQL)</h3>
-        <p class="modal-text">
-          Monitoring queries (pipeline failures, activity durations, auth failures, error spikes) are documented in <b>monitoring-kql.md</b>.
-          Keep this file in your repo as a “reviewer artifact” and reference it during walkthroughs.
-        </p>
+        <div class="card-footer">
+          <span class="pill">RBAC</span>
+          <span class="pill">Least Privilege</span>
+          <span class="pill">Governed BI</span>
+        </div>
       </article>
     </div>
   </section>
@@ -430,7 +297,7 @@
         <article class="card reveal">
           <h3>Operational Visibility</h3>
           <ul class="modal-bullets">
-            <li>Facility-level utilization metrics (bookings, cancellations, completion rate)</li>
+            <li>Facility utilization metrics (bookings, cancellations, completion rate)</li>
             <li>Vendor throughput and schedule adherence insights</li>
             <li>Exception tracking (overrides, denials, no-shows)</li>
           </ul>
@@ -439,35 +306,234 @@
         <article class="card reveal">
           <h3>Governance & Auditability</h3>
           <ul class="modal-bullets">
-            <li>Append-only audit trail for critical actions</li>
-            <li>Clear separation of operational vs analytics access</li>
-            <li>Quality enforcement through Silver contracts + reject facts</li>
+            <li>Append-only audit trail for critical actions and overrides</li>
+            <li>Access boundaries between vendors and facility roles</li>
+            <li>Intentional operational vs analytics separation</li>
           </ul>
         </article>
 
         <article class="card reveal">
           <h3>Performance & Cost Discipline</h3>
           <ul class="modal-bullets">
-            <li>Scale-to-zero dev patterns where applicable</li>
-            <li>Curated lake layers instead of always-on warehousing</li>
-            <li>Partitioned outputs to reduce scan cost and improve responsiveness</li>
+            <li>Scale-to-zero compute patterns for dev</li>
+            <li>Serverless analytics queries instead of always-on warehousing</li>
+            <li>Indexes + partitioning to reduce scans and query cost</li>
           </ul>
         </article>
       </div>
+    </div>
+  </section>
 
-      <div class="footer-cta" style="margin-top: 40px;">
-        <div class="container">
-          <h2 class="reveal">Want the full walkthrough?</h2>
-          <p class="reveal">
-            I can walk through the data model, ADF pipelines, governance controls, and how this scales into a production-grade platform.
-          </p>
-          <div class="btn-group reveal">
-            <a class="btn" href="mailto:mccrayrobert26@gmail.com?subject=Grooming%20Platform%20Walkthrough">Email Me</a>
-            <a class="btn btn-outline" href="../index.html#innovation">Back to Portfolio</a>
+  <!-- EVIDENCE / PROOF PACK -->
+  <section id="evidence" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Evidence Pack (Proof Screenshots)</h2>
+      <p class="section-subtitle reveal" style="max-width: 980px;">
+        These screenshots are intentionally chosen as “consulting signals”: governed layering, reproducible pipelines, curated analytics, and evidence of operational visibility.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>What these prove</h3>
+          <ul class="modal-bullets">
+            <li>Bronze/Silver/Gold layering is real (not just a slide)</li>
+            <li>Silver enforces data contracts (rejects are first-class)</li>
+            <li>Gold is BI-ready (facts/dims + curated metrics)</li>
+            <li>Observability exists (monitoring and runtime evidence)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Governance</span>
+            <span class="pill">ETL</span>
+            <span class="pill">BI</span>
+            <span class="pill">Monitoring</span>
           </div>
-          <p class="footer-mini reveal">© 2026 Robert McCray | Grooming Platform Case Study</p>
-        </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Screenshot checklist</h3>
+          <ul class="modal-bullets">
+            <li>ADF Bronze/Silver/Gold pipelines (successful runs)</li>
+            <li>ADLS containers + Silver/Gold folders/files</li>
+            <li>SQL Views list (silver.* and gold.*)</li>
+            <li>Silver rejects view definition snippet</li>
+            <li>Power BI Ops + Data Quality dashboard pages</li>
+            <li>Resource Group inventory/tags (governance discipline)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Audit-Ready</span>
+            <span class="pill">Repeatable</span>
+            <span class="pill">Reviewable</span>
+          </div>
+        </article>
       </div>
+
+      <article class="card reveal" style="margin-top: 18px;">
+        <h3>Screenshots Gallery</h3>
+        <p class="modal-text">
+          Stored in <b>assets/images/grooming/</b>. (If you haven’t added them yet, drop them in that folder using the suggested filenames.)
+        </p>
+
+        <div class="grid" style="margin-top: 18px;">
+          <article class="card reveal">
+            <h3>ADF Pipelines</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adf-bronze-pipeline.png" alt="ADF Bronze pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div style="margin-top: 12px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adf-silver-pipeline.png" alt="ADF Silver pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div style="margin-top: 12px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adf-gold-pipeline.png" alt="ADF Gold pipeline succeeded" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">ADF</span>
+              <span class="pill">Bronze/Silver/Gold</span>
+              <span class="pill">Repeatable</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>ADLS Evidence</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adls-containers.png" alt="ADLS containers (bronze/silver/gold/etc)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div style="margin-top: 12px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adls-silver.png" alt="Silver outputs in ADLS" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div style="margin-top: 12px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/adls-gold.png" alt="Gold outputs in ADLS" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">ADLS</span>
+              <span class="pill">Partitionable</span>
+              <span class="pill">Curated</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>SQL Layering (Silver + Gold Views)</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/sql-views-list.png" alt="SQL Views list (silver.* and gold.*)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">SQL Governance</span>
+              <span class="pill">Layering</span>
+              <span class="pill">Reviewer-Friendly</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Silver Rejects Contract (Snippet)</h3>
+            <p class="modal-text" style="margin-top: 8px;">
+              Consulting signal: rejects are not “discarded errors” — they’re first-class entities with contracts.
+            </p>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/sql-silver-rejects-view.png" alt="Silver rejects view definition (UPPER + facility_code contract)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">UPPER()</span>
+              <span class="pill">Facility Contract</span>
+              <span class="pill">Audit Ready</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Power BI — Ops</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/pbi-ops-appointments.png" alt="Power BI Ops dashboard (appointments)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">Power BI</span>
+              <span class="pill">Ops Metrics</span>
+              <span class="pill">Executive-Friendly</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Power BI — Data Quality</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/pbi-dataquality-rejects.png" alt="Power BI Data Quality dashboard (rejects + rate)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">Reject Rate</span>
+              <span class="pill">Drilldowns</span>
+              <span class="pill">Governance</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <h3>Resource Inventory + Tags</h3>
+            <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02);">
+              <img src="../assets/images/grooming/rg-resources-tags.png" alt="Azure RG resources + tags (governance discipline)" style="width: 100%; height: auto; display: block;" loading="lazy" />
+            </div>
+            <div class="card-footer">
+              <span class="pill">Governance</span>
+              <span class="pill">Tagging</span>
+              <span class="pill">IaC-friendly</span>
+            </div>
+          </article>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MONITORING -->
+  <section id="monitoring" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Monitoring & Observability</h2>
+      <p class="section-subtitle reveal" style="max-width: 980px;">
+        Monitoring here is focused on operational and governance outcomes: pipeline failures, performance regressions, auth anomalies, app instability, and quality signals.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal">
+          <h3>What I monitor</h3>
+          <ul class="modal-bullets">
+            <li>ADF pipeline failures and retries (last 24h)</li>
+            <li>Copy activity p95 duration (regressions)</li>
+            <li>SQL authentication failures (security signal)</li>
+            <li>App-side 5xx errors (stability)</li>
+            <li>Quality regression proxy (failure rate / reject trends)</li>
+          </ul>
+          <div class="card-footer">
+            <span class="pill">Log Analytics</span>
+            <span class="pill">ADF</span>
+            <span class="pill">SQL</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>KQL Artifact</h3>
+          <p class="modal-text">
+            The KQL query pack is documented in the repo as a reviewer-friendly artifact.
+          </p>
+          <div class="actions">
+            <a class="btn btn-outline btn-sm" href="../README.md" target="_blank" rel="noopener">Repo README</a>
+            <!-- If you later add docs/monitoring-kql.md, link it here -->
+            <!-- <a class="btn btn-sm" href="../docs/monitoring-kql.md" target="_blank" rel="noopener">Open monitoring-kql.md</a> -->
+          </div>
+          <div class="card-footer">
+            <span class="pill">Runbooks</span>
+            <span class="pill">Audit Ready</span>
+            <span class="pill">Operations</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta" style="margin-top: 40px;">
+    <div class="container">
+      <h2 class="reveal">Want the full walkthrough?</h2>
+      <p class="reveal">
+        I can walk through the data model, ADF pipelines, governance controls, monitoring signals, and how this scales into a production-grade platform.
+      </p>
+      <div class="btn-group reveal">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com?subject=Grooming%20Platform%20Walkthrough">Email Me</a>
+        <a class="btn btn-outline" href="../index.html#innovation">Back to Portfolio</a>
+      </div>
+      <p class="footer-mini reveal">© 2026 Robert McCray | Grooming Platform Case Study</p>
     </div>
   </section>
 
