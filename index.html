@@ -16,20 +16,22 @@
   <meta property="og:url" content="https://robertmccray.github.io" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- Progress bar -->
+  <!-- Progress Bar -->
   <div class="progress-wrap" aria-hidden="true">
     <div class="progress-bar" id="progressBar"></div>
   </div>
 
-  <!-- Sticky Nav -->
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a class="nav-brand" href="#home" aria-label="Go to Home">
+      <a class="nav-brand" href="#home">
         RM <span class="nav-brand-sub">Secure Systems</span>
       </a>
 
@@ -42,7 +44,7 @@
       </div>
 
       <div class="nav-cta">
-        <a class="btn btn-outline btn-sm" href="assets/resume.pdf" download aria-label="Download Resume">
+        <a class="btn btn-outline btn-sm" href="assets/resume.pdf" download>
           Download Resume
         </a>
       </div>
@@ -55,7 +57,7 @@
 
     <div class="container hero-inner">
       <div class="badge-container reveal">
-        <div class="badge">AVAILABLE FOR SECURE CLOUD OPPORTUNITIES</div>
+        <div class="badge">AVAILABLE FOR SECURE CLOUD & DATA ENGAGEMENTS</div>
       </div>
 
       <h1 class="reveal">
@@ -63,32 +65,21 @@
       </h1>
 
       <p class="hero-sub reveal">
-        I design secure, cloud-native data platforms — <b>multi-tenant</b>, <b>audit-ready</b>, and built for regulated environments (PHI/PII).
+        I design <b>multi-tenant</b>, <b>audit-ready</b>, cloud-native data platforms
+        for regulated environments (PHI / PII / compliance-adjacent).
       </p>
 
-      <div class="hero-chips reveal" role="list">
+      <div class="hero-chips reveal">
         <a class="chip" href="projects/mhd.html">MHD Case Study</a>
-        <a class="chip" href="projects/grooming.html">Grooming Platform (Azure)</a>
+        <a class="chip" href="projects/grooming.html">Azure Grooming Platform</a>
         <a class="chip" href="artifacts/security-model.html">Security Model</a>
         <a class="chip" href="artifacts/architecture-work.html">Architecture Work</a>
       </div>
 
       <div class="btn-group reveal">
-        <a class="btn" href="projects/mhd.html">View MHD Case Study</a>
+        <a class="btn" href="projects/mhd.html">View Case Study</a>
         <a class="btn btn-outline" href="mailto:mccrayrobert26@gmail.com">Email Me</a>
-        <a class="btn btn-outline" href="https://linkedin.com/in/robert-mccray-467613195" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-
-      <div class="hero-proof reveal">
-        <div class="proof-card">
-          <div class="proof-title">Proof Artifacts</div>
-          <div class="proof-links">
-            <a href="artifacts/architecture-work.html" class="proof-link">Architecture Diagram</a>
-            <a href="artifacts/security-model.html#controls" class="proof-link">Security Controls</a>
-            <a href="artifacts/production-roadmap.html" class="proof-link">Production Roadmap</a>
-            <a href="projects/grooming.html#evidence" class="proof-link">Grooming Evidence Pack</a>
-          </div>
-        </div>
+        <a class="btn btn-outline" href="https://linkedin.com/in/robert-mccray-467613195" target="_blank">LinkedIn</a>
       </div>
     </div>
   </header>
@@ -96,33 +87,99 @@
   <!-- METRICS -->
   <section class="metrics">
     <div class="container metrics-container reveal">
-      <div class="metric-card">
-        <h2>4+</h2>
-        <p>Years Building Systems</p>
-      </div>
-      <div class="metric-card">
-        <h2>Multi</h2>
-        <p>Tenant + RBAC Patterns</p>
-      </div>
-      <div class="metric-card">
-        <h2>PHI</h2>
-        <p>Audit-Ready Data Flows</p>
-      </div>
-      <div class="metric-card">
-        <h2>IaC</h2>
-        <p>Guardrails + Repeatability</p>
-      </div>
+      <div class="metric-card"><h2>4+</h2><p>Years Building Systems</p></div>
+      <div class="metric-card"><h2>Multi</h2><p>Tenant + RBAC Patterns</p></div>
+      <div class="metric-card"><h2>PHI</h2><p>Audit-Ready Pipelines</p></div>
+      <div class="metric-card"><h2>IaC</h2><p>Governed Deployments</p></div>
     </div>
   </section>
 
   <!-- SECURITY -->
   <section id="security" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Security-By-Design</h2>
+      <h2 class="section-title reveal">Security by Design</h2>
       <p class="section-subtitle reveal">
-        Defense-in-depth patterns for highly regulated environments — identity-first access, segmented networks, and auditable data flows.
+        Identity-first access, tenant isolation, and auditable data flows —
+        designed for compliance, not retrofitted.
       </p>
 
-      <div class="mini-diagram reveal">
-        <div class="mini-node">Identity<br><span>Entra ID / JWT</span></div>
-        <
+      <div class="security-grid reveal">
+        <div class="security-card">
+          <h3>Identity</h3>
+          <p>Entra ID, RBAC, scoped tokens, session context</p>
+        </div>
+        <div class="security-card">
+          <h3>Data</h3>
+          <p>Row-level security, audit schemas, immutable bronze</p>
+        </div>
+        <div class="security-card">
+          <h3>Platform</h3>
+          <p>IaC guardrails, environment tagging, cost controls</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATION -->
+  <section id="innovation" class="section alt">
+    <div class="container">
+      <h2 class="section-title reveal">Innovation with Guardrails</h2>
+      <p class="section-subtitle reveal">
+        Analytics, automation, and AI — delivered with governance, lineage,
+        and operational visibility.
+      </p>
+
+      <ul class="innovation-list reveal">
+        <li>Bronze / Silver / Gold lakehouse design</li>
+        <li>Operational + compliance monitoring (KQL)</li>
+        <li>Star schema analytics for BI</li>
+        <li>Secure API + worker architectures</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Core Skills</h2>
+
+      <div class="skills-grid reveal">
+        <span>Azure Data Factory</span>
+        <span>Azure SQL</span>
+        <span>ADLS Gen2</span>
+        <span>Power BI</span>
+        <span>Log Analytics (KQL)</span>
+        <span>FastAPI</span>
+        <span>Docker</span>
+        <span>Terraform / Bicep</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container reveal">
+      <h2 class="section-title">Let’s Build Something Secure</h2>
+      <p class="section-subtitle">
+        Open to senior data, platform, and security-focused engagements.
+      </p>
+
+      <div class="btn-group">
+        <a class="btn" href="mailto:mccrayrobert26@gmail.com">Start a Conversation</a>
+        <a class="btn btn-outline" href="assets/resume.pdf" download>Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Robert McCray · Secure Systems · Built with intent</p>
+    </div>
+  </footer>
+
+  <!-- JS (CRITICAL) -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
