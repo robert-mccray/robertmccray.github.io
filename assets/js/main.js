@@ -1,6 +1,7 @@
 // Scroll progress bar
 (function () {
   const bar = document.getElementById("progressBar");
+  if (!bar) return;
 
   function setProgress() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -17,6 +18,8 @@
 // Reveal on scroll
 (function () {
   const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -33,6 +36,7 @@
 (function () {
   const sections = document.querySelectorAll("header[id], section[id], footer[id]");
   const navLinks = document.querySelectorAll(".nav-link");
+  if (!sections.length || !navLinks.length) return;
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -55,6 +59,7 @@
   const openButtons = document.querySelectorAll("[data-modal]");
   const closeSelectors = "[data-close]";
   const modals = document.querySelectorAll(".modal");
+  if (!modals.length) return;
 
   function openModal(id) {
     const modal = document.getElementById(id);
