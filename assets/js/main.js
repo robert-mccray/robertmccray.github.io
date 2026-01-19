@@ -1,14 +1,10 @@
-/* =========================================================
-   Scroll Progress Bar
-   ========================================================= */
+// Scroll progress bar
 (function () {
   const bar = document.getElementById("progressBar");
-  if (!bar) return;
 
   function setProgress() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     bar.style.width = `${pct}%`;
   }
@@ -18,20 +14,13 @@
   setProgress();
 })();
 
-/* =========================================================
-   Reveal-on-Scroll Animations
-   ========================================================= */
+// Reveal on scroll
 (function () {
   const els = document.querySelectorAll(".reveal");
-  if (!els.length) return;
-
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("visible");
-          io.unobserve(e.target); // reveal once (performance)
-        }
+        if (e.isIntersecting) e.target.classList.add("visible");
       });
     },
     { threshold: 0.15 }
@@ -40,25 +29,10 @@
   els.forEach((el) => io.observe(el));
 })();
 
-/* =========================================================
-   ScrollSpy (Active Nav Highlighting)
-   - Safe for index + subpages
-   ========================================================= */
+// ScrollSpy active nav links
 (function () {
-  const sections = document.querySelectorAll(
-    "header[id], section[id], footer[id]"
-  );
+  const sections = document.querySelectorAll("header[id], section[id], footer[id]");
   const navLinks = document.querySelectorAll(".nav-link");
-
-  if (!sections.length || !navLinks.length) return;
-
-  const linkMap = new Map();
-  navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href && href.startsWith("#")) {
-      linkMap.set(href.slice(1), link);
-    }
-  });
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -66,52 +40,34 @@
         if (!entry.isIntersecting) return;
 
         navLinks.forEach((a) => a.classList.remove("active"));
-
-        const match = linkMap.get(entry.target.id);
+        const match = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
         if (match) match.classList.add("active");
       });
     },
-    {
-      rootMargin: "-30% 0px -55% 0px",
-      threshold: 0.01,
-    }
+    { threshold: 0.35 }
   );
 
   sections.forEach((sec) => io.observe(sec));
 })();
 
-/* =========================================================
-   Modal System
-   ========================================================= */
+// Modals
 (function () {
   const openButtons = document.querySelectorAll("[data-modal]");
+  const closeSelectors = "[data-close]";
   const modals = document.querySelectorAll(".modal");
-  if (!modals.length) return;
-
-  let lastFocusedElement = null;
 
   function openModal(id) {
     const modal = document.getElementById(id);
     if (!modal) return;
-
-    lastFocusedElement = document.activeElement;
-
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-
-    const focusable = modal.querySelector(
-      "button, [href], input, textarea, select, [tabindex]:not([tabindex='-1'])"
-    );
-    if (focusable) focusable.focus();
   }
 
   function closeModal(modal) {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-
-    if (lastFocusedElement) lastFocusedElement.focus();
   }
 
   openButtons.forEach((btn) => {
@@ -121,7 +77,7 @@
   });
 
   modals.forEach((modal) => {
-    modal.querySelectorAll("[data-close]").forEach((el) => {
+    modal.querySelectorAll(closeSelectors).forEach((el) => {
       el.addEventListener("click", () => closeModal(modal));
     });
   });
